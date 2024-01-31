@@ -1,7 +1,8 @@
 #include <iostream>
-#include "test.h"
+#include "include/TUI.h"
 
 int main(int, char**){
-    test hej = test();
+    TUI test = TUI();
+    test.mainLoop();
     return EXIT_SUCCESS;
 }
