@@ -4,7 +4,10 @@ project(HiQ_CodeTest VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-add_executable(HiQ_CodeTest main.cpp)
+include_directories(include)
+file(GLOB SOURCES "include/*.cpp")
+
+add_executable(HiQ_CodeTest main.cpp ${SOURCES})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

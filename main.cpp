@@ -1,5 +1,7 @@
 #include <iostream>
+#include "test.h"
 
 int main(int, char**){
-    std::cout << "Hello, from HiQ_CodeTest!\n";
+    test hej = test();
+    return EXIT_SUCCESS;
 }
