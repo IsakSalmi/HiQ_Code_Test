@@ -11,10 +11,12 @@ class Car
 private:
     char direction;
     int forward[2];
-    int backword[2];
+    int backward[2];
 public:
     Car();
 
     void changeDir(char dir);
     void printDir();
+    int* getForward();
+    int* getBackward();
 };

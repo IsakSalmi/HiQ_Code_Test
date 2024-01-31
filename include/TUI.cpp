@@ -16,4 +16,6 @@ void TUI::mainLoop(){
 
     Simulator test(fieldDimX,fieldDimY,startX,startY,direction,command);
     test.printMatrix();
+
+    test.Calculate();
 }
