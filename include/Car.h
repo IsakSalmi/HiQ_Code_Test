@@ -14,7 +14,7 @@ private:
     int backward[2];
 public:
     Car();
-
+    void turnCar(char dir);
     void changeDir(char dir);
     void printDir();
     int* getForward();

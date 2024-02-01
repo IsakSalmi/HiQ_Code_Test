@@ -2,7 +2,7 @@
 #include "include/TUI.h"
 
 int main(int, char**){
-    TUI test = TUI();
-    test.mainLoop();
+    TUI start = TUI();
+    start.mainLoop();
     return EXIT_SUCCESS;
 }
