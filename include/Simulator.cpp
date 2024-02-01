@@ -12,9 +12,9 @@
  */
 Simulator::Simulator(int dimX, int dimY, int startX, int startY, char startF, string command) : data(dimX, std::vector<int>(dimY, 0)){
     currentCar.changeDir(startF);
-    data[startY][startX] = 1;
     carPosX = startX;
     carPosY = startY;
+    data[carPosX][carPosY] = 1;
 
     maxPosX = dimX;
     maxPosY = dimY;
@@ -33,6 +33,7 @@ bool Simulator::Calculate(){
     int* backMove;
     bool haveNotCrash = true;
     for(int i = 0; i < newCommand.length(); i++){
+        printMatrix();
         if(newCommand[i] == 'F'){
             forwardMove = currentCar.getForward(); //get the array for the x and y directions
             haveNotCrash = moveCar(carPosX, carPosY, carPosX + forwardMove[0], carPosY + forwardMove[1]);
@@ -59,6 +60,7 @@ bool Simulator::Calculate(){
             cout << "somthing whent wrong with the simulation" << endl;
         }
     }
+    printMatrix();
     if(haveNotCrash == true){
         cout << "the route was successful and the car ended on: "<< carPosX << ":" << carPosY << endl;
         return true;
@@ -82,8 +84,8 @@ bool Simulator::moveCar(int startX, int startY, int endX, int endY){
     if((endX >= maxPosX) || (endY >= maxPosY) || (endX < 0) || (endY < 0)){
         return false;
     }
-    data[startY][startX] = 0;
-    data[endY][endX] = 1;
+    data[startX][startY] = 0;
+    data[endX][endY] = 1;
     carPosX = endX;
     carPosY = endY;
     return true;
