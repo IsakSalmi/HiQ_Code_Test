@@ -37,9 +37,8 @@ void TUI::mainLoop(){
         cin >> command;
     }while(!(checkCommand(command)));
 
-    Simulator test(fieldDimX,fieldDimY,startX,startY,direction,command);
-
-    test.Calculate();
+    Simulator test(fieldDimX,fieldDimY,startX,startY,direction,command);//create the simulator with the given input
+    test.Calculate();//start the calculation
 }
 
 /**
