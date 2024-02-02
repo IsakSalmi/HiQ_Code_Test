@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/TUI.h"
+#include "TUI.h"
 
 int main(int, char**){
     TUI start = TUI();
