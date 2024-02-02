@@ -61,6 +61,7 @@ bool Simulator::Calculate(){
         }
     }
     if(haveNotCrash == true){
+        printMatrix();
         cout << "the route was successful and the car ended on: "<< maxPosX - carPosX - 1 << ":" << carPosY << endl;
         return true;
     }
