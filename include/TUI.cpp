@@ -9,7 +9,7 @@ TUI::TUI(){}
  */
 void TUI::mainLoop(){
     do{
-        cout << "Enter two positive integers separated by a space: ";
+        cout << "Enter two positive integers separated by a space (Row Col): ";
         cin >> fieldDimX >> fieldDimY;
 
         if (cin.fail() || fieldDimX <= 0 || fieldDimY <= 0) { // clear the input if the input was wrong
@@ -18,10 +18,10 @@ void TUI::mainLoop(){
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     } while (cin.fail() || fieldDimX <= 0 || fieldDimY <= 0);
-
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     do {
-        cout << "Enter starting position X Y F (in the interval of fieldDimX fieldDimY): ";
+        cout << "Enter starting position Row Col direction (in the interval of the room): ";
         cin >> startX >> startY >> direction;
 
         if (cin.fail() || startX < 0 || startX >= fieldDimX || startY < 0 || startY >= fieldDimY || !(checkDir(direction))) { // clear the input if the input was wrong
@@ -30,7 +30,7 @@ void TUI::mainLoop(){
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     } while (cin.fail() || startX < 0 || startX >= fieldDimX || startY < 0 || startY >= fieldDimY || !(checkDir(direction)));
-
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
     do{
         cout << "Enter command(only F B L R): ";
@@ -47,7 +47,7 @@ void TUI::mainLoop(){
  * 
  * @param Dir The char that you whant to check
  * @return true if thay are one of N E S W
- * @return false if it not one of N E S W
+ * @return false if its not one of N E S W
  */
 bool TUI::checkDir(char Dir){
     if((Dir == 'N')||(Dir == 'E')||(Dir == 'S')||(Dir == 'W')){

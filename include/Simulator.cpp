@@ -38,7 +38,7 @@ bool Simulator::Calculate(){
             forwardMove = currentCar.getForward(); //get the array for the x and y directions
             haveNotCrash = moveCar(carPosX, carPosY, carPosX + forwardMove[0], carPosY + forwardMove[1]);
             if(haveNotCrash == false){ // if we crashed when moving the car
-                cout << "car crashed on: " << maxPosX - carPosX - 1 << " " << carPosY << " trying to go to: " << maxPosX - carPosX + forwardMove[0] - 1 << " " << carPosY + forwardMove[1] << endl;
+                cout << "car crashed on: " << maxPosX - carPosX - 1 << " " << carPosY << " trying to go to: " << maxPosX - carPosX - forwardMove[0] - 1 << " " << carPosY + forwardMove[1] << endl;
                 break;
             }
         }
@@ -46,7 +46,7 @@ bool Simulator::Calculate(){
             backMove = currentCar.getBackward();//get the array for the x and y directions
             haveNotCrash = moveCar(carPosX, carPosY, carPosX + backMove[0], carPosY + backMove[1]);
             if(haveNotCrash == false){ // if we crashed when moving the car
-                cout << "car crashed on: " << maxPosX - carPosX - 1 << " " << carPosY << " trying to go to: " << maxPosX - carPosX + backMove[0] - 1 << " " << carPosY + backMove[1] << endl;
+                cout << "car crashed on: " << maxPosX - carPosX - 1 << " " << carPosY << " trying to go to: " << maxPosX - carPosX - backMove[0] - 1 << " " << carPosY + backMove[1] << endl;
                 break;
             }
         }
@@ -60,7 +60,6 @@ bool Simulator::Calculate(){
             cout << "somthing whent wrong with the simulation" << endl;
         }
     }
-    printMatrix();
     if(haveNotCrash == true){
         cout << "the route was successful and the car ended on: "<< maxPosX - carPosX - 1 << ":" << carPosY << endl;
         return true;
